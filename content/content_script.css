@@ -1,0 +1,47 @@
+table.__ac_table {
+    width: 100%;
+    font-size: 12px;
+    background-color: black;
+    border-spacing: 0;
+    margin: 0;
+}
+
+table.__ac_table tr {
+    height: auto;
+}
+
+table.__ac_table tr td {
+    color: #cccccc;
+    padding: 3px;
+    background-color: black;
+    border-width: 0;
+}
+
+table.__ac_table tr td.__ac_label {
+    color: #999999;
+    font-weight: bold;
+    text-align: right;
+    width: 100px;
+}
+
+.__ac_selected_text_header {
+    z-index: 10;
+    background: url(../resources/quot2.png) no-repeat;
+    height: 11px;
+    position: relative;
+    left: 6px;
+}
+
+.__ac_selected_text_outer {
+    background-color: #4d4d4d;
+    padding: 4px 5px 4px 15px;
+    color: #b0b0b0;
+    border-radius: 5px;
+    position: relative;
+    top: -6px;
+}
+
+.__ac_selected_text {
+    padding: 0 12px 3px 0;
+    background: url(../resources/quot2.png) no-repeat right bottom;
+}

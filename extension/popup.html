@@ -1,0 +1,44 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="popup.css"/>
+
+    <script type="text/javascript">
+        function copy_selected() {
+            chrome.windows.getLastFocused(function(window) {
+                chrome.tabs.getSelected(window.id, function(tab) {
+                    chrome.tabs.sendRequest(tab.id, {
+                        'type' : 'capture_selected'
+                    });
+                });
+            });
+        }
+
+        function show_account_clipboard() {
+            var account_info = chrome.extension.getBackgroundPage().account_info;
+            chrome.windows.getLastFocused(function(window) {
+                chrome.tabs.getSelected(window.id, function(tab) {
+                    chrome.tabs.sendRequest(tab.id, {
+                        'type' : 'show_notification',
+                        'account_info' : account_info
+                    }, function(response) {
+                        console.log('sent account info');
+                    });
+                });
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+<ul>
+    <li>
+        <a href="#" onclick="copy_selected();">Capture Selected</a>
+    </li>
+    <li>
+        <a href="#" onclick="show_account_clipboard();">Show Clipboard</a>
+    </li>
+</ul>
+
+</body>
+</html>

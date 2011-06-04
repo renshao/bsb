@@ -1,0 +1,35 @@
+{
+    "name": "BSB",
+    "version": "0.1",
+    "description": "Copy and paste BSB and account numbers",
+    "icons": {
+        "16": "resources/icon16.png",
+        "48": "resources/icon16.png",
+        "128": "resources/icon16.png"
+    },
+    "background_page": "extension/background.html",
+    "browser_action": {
+        "default_title": "",
+        "default_icon": "resources/logo.png",
+        "default_popup": "extension/popup.html"
+    },
+    "permissions": [
+        "http://*/*",
+        "https://*/*",
+        "tabs",
+        "contextMenus",
+        "notifications"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "css": ["content/jgrowl/jquery.jgrowl.css", "content/content_script.css"],
+            "js": ["content/jquery-1.5.2.js",
+                "content/jquery.tmpl.js",
+                "content/jgrowl/jquery.jgrowl.js",
+                "content/bank_handlers.js",
+                "content/content_script.js"],
+            "run_at" : "document_end"
+        }
+    ]
+}
