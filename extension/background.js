@@ -7,7 +7,7 @@ chrome.extension.onRequest.addListener(function(new_account_info, sender, sendRe
 });
 
 
-chrome.contextMenus.create({title: 'Fill Account Detail', contexts: ['all'], onclick: send_account_info});
+chrome.contextMenus.create({title: 'Fill Account', contexts: ['all'], onclick: send_account_info});
 
 
 function send_account_info() {

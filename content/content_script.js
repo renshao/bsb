@@ -4,7 +4,7 @@ const NOTIFICATION_CLASS_SELECTOR = '.' + NOTIFICATION_CLASS;
 /**
  * Lifespan of a non-sticky notification
  */
-const NOTE_LIFE = 10000;
+        const NOTE_LIFE = 10000;
 
 var previous_selected_text = null;
 var template = "<div class='__ac_notification'>" +
@@ -75,7 +75,7 @@ function fill_text_fields(account_info) {
 }
 
 /**
- * Fired whenever mouse up in browser. Try to detect if selected text
+ * Fired on mouse up in browser. Try to detect if selected text
  * contains account information
  */
 function onmouseup() {
@@ -107,6 +107,7 @@ function show_account_notification(account_info, options) {
     options = options === undefined ? {} : options;
     options.theme = NOTIFICATION_CLASS;
     options.life = NOTE_LIFE;
+    options.theme = 'bsb';
     // when responded, show notification
     var account_info_html = jQuery.tmpl(template, account_info).html();
     jQuery.jGrowl(account_info_html, options);
@@ -127,14 +128,14 @@ function getSelectionText() {
         });
     }
 
-    if (selection.type !== 'Range'){
+    if (selection.type !== 'Range') {
         return null;
     }
 
     var selected_node = jQuery(selection.anchorNode);
 
     // ignore if selecting within the notification box
-    if (selected_node.parents(NOTIFICATION_CLASS_SELECTOR).length > 0){
+    if (selected_node.parents(NOTIFICATION_CLASS_SELECTOR).length > 0) {
         return null;
     }
 
@@ -155,10 +156,9 @@ function extract_account_info(selected_text) {
 
     var account_no = extract_account_no(bsb === null ? null : bsb1 + bsb2, selected_text);
 
-
     var name = extract_name(selected_text);
 
-    if (bsb1 || bsb2 || account_no) {
+    if (bsb1 || bsb2) {
         return {
             name:name,
             bsb1:bsb1,

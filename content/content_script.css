@@ -1,9 +1,18 @@
+/* fix for commbank. TODO: may interrupt sites using jGrowl. Check fix in future */
+div#jGrowl.jGrowl div.jGrowl-notification div.jGrowl-header  {
+    font-size: 12px;
+}
+/* fix for commbank. TODO: may interrupt sites using jGrowl. Check fix in future */
+div#jGrowl.jGrowl div.jGrowl-notification div.jGrowl-close  {
+    font-size: 12px;
+}
+
 table.__ac_table {
     width: 100%;
     font-size: 12px;
     background-color: black;
     border-spacing: 0;
-    margin: 0;
+    margin: 17px 0 0 0;
 }
 
 table.__ac_table tr {
@@ -42,6 +51,7 @@ table.__ac_table tr td.__ac_label {
 }
 
 .__ac_selected_text {
+    font-size: 12px;
     padding: 0 12px 3px 0;
     background: url(../resources/quot2.png) no-repeat right bottom;
 }
