@@ -1,9 +1,22 @@
+var host = window.location.host;
+if(host.match(/.+commbank\.com\.au/i)){
+    var transferForm = jQuery('form[name="transferForm"]');
+    if (transferForm.length === 1) {
+        var fill_button = jQuery('<button>Fill</button>');
+        fill_button.click(function(){
+
+        });
+        jQuery('#accountName').after(fill_button);
+    }
+}
+
 var bank_handlers = {
     'cba' : function(account_info) {
-        jQuery('input[name="NEW_ACCOUNT_NAME"]').val(account_info.name);
-        jQuery('input[name="NEW_BSB_1"]').val(account_info.bsb1);
-        jQuery('input[name="NEW_BSB_2"]').val(account_info.bsb2);
-        jQuery('input[name="NEW_ACCOUNT_NUMBER"]').val(account_info.account_no);
+        jQuery('#newAccount').click();
+        jQuery('#accountName').val(account_info.name);
+        jQuery('#BSB1').val(account_info.bsb1);
+        jQuery('#BSB2').val(account_info.bsb2);
+        jQuery('#accountNumber').val(account_info.account_no);
     },
     'nab' : function(account_info) {
         jQuery('input[name="payeeAcctName"]').val(account_info.name);
@@ -21,7 +34,6 @@ var bank_handlers = {
 
 function get_bank_code() {
     var host = window.location.host;
-    console.log(host);
     if(host.match(/.+commbank\.com\.au/i)){
         return 'cba';
     }else if(host.match(/.+nab\.com\.au/i)){
