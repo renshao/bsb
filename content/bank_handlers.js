@@ -1,12 +1,20 @@
+var fill_button = jQuery("<button type='button'>Fill Account</button>");
+fill_button.click(function() {
+    chrome.extension.sendRequest({
+        type: 'fill'
+    });
+});
+
 var host = window.location.host;
-if(host.match(/.+commbank\.com\.au/i)){
+if (host.match(/.+commbank\.com\.au/i)) {
     var transferForm = jQuery('form[name="transferForm"]');
     if (transferForm.length === 1) {
-        var fill_button = jQuery('<button>Fill</button>');
-        fill_button.click(function(){
-
-        });
         jQuery('#accountName').after(fill_button);
+    }
+} else if (host.match(/.+nab\.com\.au/i)) {
+    var bsb = jQuery('input[name="payeeBsb"]');
+    if (bsb.length === 1) {
+        bsb.after(fill_button);
     }
 }
 
@@ -34,9 +42,9 @@ var bank_handlers = {
 
 function get_bank_code() {
     var host = window.location.host;
-    if(host.match(/.+commbank\.com\.au/i)){
+    if (host.match(/.+commbank\.com\.au/i)) {
         return 'cba';
-    }else if(host.match(/.+nab\.com\.au/i)){
+    } else if (host.match(/.+nab\.com\.au/i)) {
         return 'nab';
     }
     return null;

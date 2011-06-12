@@ -98,7 +98,10 @@ function onmouseup() {
     account_info.selected_text = selected_text;
 
     // send account_info to backend
-    chrome.extension.sendRequest(account_info);
+    chrome.extension.sendRequest({
+        type: 'account_info',
+        account_info: account_info
+    });
     show_account_notification(account_info, {header : 'BSB & account detected'});
 }
 

@@ -1,13 +1,17 @@
 var account_info = null;
 
 // when new account info extracted
-chrome.extension.onRequest.addListener(function(new_account_info, sender, sendResponse) {
-    account_info = new_account_info;
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+    if (request.type == 'account_info') {
+        account_info = request.account_info;
+    } else if (request.type == 'fill'){
+        send_account_info();
+    }
     sendResponse({});
 });
 
 
-chrome.contextMenus.create({title: 'Fill Account', contexts: ['all'], onclick: send_account_info});
+//chrome.contextMenus.create({title: 'Fill Account', contexts: ['all'], onclick: send_account_info});
 
 
 function send_account_info() {
