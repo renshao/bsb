@@ -1,7 +1,7 @@
 {
-    "name": "BSB",
-    "version": "0.1",
-    "description": "Copy and paste BSB and account numbers",
+    "name": "Web Stand",
+    "version": "0.2",
+    "description": "Put selected content on the web stand, so you can see it while switching away from current tab or even Chrome",
     "icons": {
         "16": "resources/icon48.png",
         "48": "resources/icon48.png",
