@@ -19,17 +19,6 @@
         "tabs",
         "contextMenus",
         "notifications"
-    ],
-    "content_scripts": [
-        {
-            "matches": ["http://*/*", "https://*/*"],
-            "css": ["content/jgrowl/jquery.jgrowl.css", "content/content_script.css"],
-            "js": ["content/jquery-1.5.2.js",
-                "content/jquery.tmpl.js",
-                "content/jgrowl/jquery.jgrowl.js",
-                "content/bank_handlers.js",
-                "content/content_script.js"],
-            "run_at" : "document_end"
-        }
     ]
+    
 }

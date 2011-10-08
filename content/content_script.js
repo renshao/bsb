@@ -34,10 +34,10 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 
 
 jQuery(document).ready(function() {
-    jQuery(document).mouseup(onmouseup);
-    jQuery('iframe').each(function(index, iframe) {
-        jQuery(iframe.contentDocument).mouseup(onmouseup);
-    });
+//    jQuery(document).mouseup(onmouseup);
+//    jQuery('iframe').each(function(index, iframe) {
+//        jQuery(iframe.contentDocument).mouseup(onmouseup);
+   // });
 });
 
 function capture_selected() {

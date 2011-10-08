@@ -1,14 +1,21 @@
 var account_info = null;
 
+var parent = chrome.contextMenus.create({"title": "Stick it", "contexts": ["selection"], onclick : stick});
+
+var selectionText = "";
+
+function getSelectionText() {
+	return selectionText;
+}
+
 // when new account info extracted
-chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
-    if (request.type == 'account_info') {
-        account_info = request.account_info;
-    } else if (request.type == 'fill'){
-        send_account_info();
-    }
-    sendResponse({});
-});
+function stick(info, tab) {
+	selectionText = info.selectionText;
+	var notification = webkitNotifications.createHTMLNotification(
+  		'notification.html'
+	);
+	notification.show();
+}
 
 
 //chrome.contextMenus.create({title: 'Fill Account', contexts: ['all'], onclick: send_account_info});
