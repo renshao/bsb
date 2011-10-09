@@ -1,10 +1,9 @@
-BSB
+Web Stand
 ===
-This Chrome plugin makes it easier to transfer money using internet banking.
+Store text on the web stand so you can see it while switching away from current tab or even Chrome
 
 Usage
 -----
-* Open the web page (or your webmail) that contains the account you want to transfer to.
-* Select the account information including BSB and account name. A dialog will pop up auto detecting your selection.
-* Go to your internet banking transfer page
-* Click the 'BSB' plugin icon, and select 'Paste Account'
+* Select text you want to see from another tab, e.g. your friend's account detail from Gmail. 
+* Right click and select 'Send to Web Stand', that's it.
+* You selected will stay in a pop out window, even when you switch to a different tab 
